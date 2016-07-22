@@ -8,8 +8,9 @@ using System.Threading.Tasks;
  * Date : July 19th, 2016
  * Date Modified: Jul 22th, 2016
  * Description : Assignment 4 Project 2 Airline Reservations System
- * Version : 0.6 - 
- *                  Almost Finished
+ * Version : 1.0 - 
+ *                  Added Documentary
+ *                  Initial release
  */
 namespace Assignment_4_Project_2
 {
@@ -19,8 +20,9 @@ namespace Assignment_4_Project_2
         {
             int firstclass = 0;
             int economy = 0;
-            List<string> availableseat = new List<string>();
-            List<string> assignedseat = new List<string>();
+            List<string> availableseat = new List<string>();// List for Available Seat
+            List<string> assignedseat = new List<string>();// List For Assigned Seat
+            // Add seat to available seat
             availableseat.Add("Economy");
             availableseat.Add("First Class");
             availableseat.Add("Economy");
@@ -32,6 +34,7 @@ namespace Assignment_4_Project_2
             availableseat.Add("Economy");
             availableseat.Add("First Class");
 
+            // Display alternatives inside a while loop
             while (economy < 5 || firstclass < 5)
             {
                 Console.WriteLine("Please make a selection");
@@ -40,7 +43,7 @@ namespace Assignment_4_Project_2
 
                 int switchclass = Convert.ToInt32(Console.ReadLine());
                 
-                switch (switchclass)
+                switch (switchclass)// Switch statement 
                 {
                     case 1:
                         Console.WriteLine("First Class");
