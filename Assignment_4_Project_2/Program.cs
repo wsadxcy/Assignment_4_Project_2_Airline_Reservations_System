@@ -8,8 +8,8 @@ using System.Threading.Tasks;
  * Date : July 19th, 2016
  * Date Modified: Jul 21th, 2016
  * Description : Assignment 4 Project 2 Airline Reservations System
- * Version : 0.2 - 
- *                  Added the switch statement
+ * Version : 0.3 - 
+ *                  Finished part 1 and 2
  */
 namespace Assignment_4_Project_2
 {
@@ -32,6 +32,7 @@ namespace Assignment_4_Project_2
                     {
                         firstclass++;
                         Console.WriteLine(firstclass);
+                        break;
                     }
                     break;
                 case 2:
@@ -40,6 +41,7 @@ namespace Assignment_4_Project_2
                     {
                         economy++;
                         Console.WriteLine(economy);
+                        break;
                     }
                     break;
                 case 3:
