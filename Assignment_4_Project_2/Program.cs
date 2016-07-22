@@ -8,8 +8,8 @@ using System.Threading.Tasks;
  * Date : July 19th, 2016
  * Date Modified: Jul 22th, 2016
  * Description : Assignment 4 Project 2 Airline Reservations System
- * Version : 0.4 - 
- *                  Fixed the while loop
+ * Version : 0.5 - 
+ *                  Added Lists
  */
 namespace Assignment_4_Project_2
 {
@@ -19,8 +19,20 @@ namespace Assignment_4_Project_2
         {
             int firstclass = 0;
             int economy = 0;
+            List<string> availableseat = new List<string>();
+            availableseat.Add("Economy");
+            availableseat.Add("Economy");
+            availableseat.Add("Economy");
+            availableseat.Add("Economy");
+            availableseat.Add("Economy");
+            List<string> assignedseat = new List<string>();
+            assignedseat.Add("First class");
+            assignedseat.Add("First class");
+            assignedseat.Add("First class");
+            assignedseat.Add("First class");
+            assignedseat.Add("First class");
 
-            while (firstclass < 5 || economy < 5)
+            while (availableseat.Count != 0 || assignedseat.Count != 0)
             {
                 Console.WriteLine("Please make a selection");
                 Console.WriteLine("1 for First Class, 2 for Economy, 3 Exit ");
@@ -34,7 +46,8 @@ namespace Assignment_4_Project_2
                         while (firstclass < 5)
                         {
                             firstclass++;
-                            Console.WriteLine(firstclass);
+                            
+                            assignedseat.RemoveAt(1);
                             break;
                         }
                         break;
@@ -43,13 +56,13 @@ namespace Assignment_4_Project_2
                         while (economy < 5)
                         {
                             economy++;
-                            Console.WriteLine(economy);
+                            
+                            availableseat.RemoveAt(1);
                             break;
                         }
                         break;
                     case 3:
-                        Console.WriteLine("Exit");
-                        break;
+                        return;
 
                 }
             }
