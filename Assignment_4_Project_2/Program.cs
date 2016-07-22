@@ -8,8 +8,8 @@ using System.Threading.Tasks;
  * Date : July 19th, 2016
  * Date Modified: Jul 22th, 2016
  * Description : Assignment 4 Project 2 Airline Reservations System
- * Version : 0.5 - 
- *                  Added Lists
+ * Version : 0.6 - 
+ *                  Almost Finished
  */
 namespace Assignment_4_Project_2
 {
@@ -20,22 +20,23 @@ namespace Assignment_4_Project_2
             int firstclass = 0;
             int economy = 0;
             List<string> availableseat = new List<string>();
-            availableseat.Add("Economy");
-            availableseat.Add("Economy");
-            availableseat.Add("Economy");
-            availableseat.Add("Economy");
-            availableseat.Add("Economy");
             List<string> assignedseat = new List<string>();
-            assignedseat.Add("First class");
-            assignedseat.Add("First class");
-            assignedseat.Add("First class");
-            assignedseat.Add("First class");
-            assignedseat.Add("First class");
+            availableseat.Add("Economy");
+            availableseat.Add("First Class");
+            availableseat.Add("Economy");
+            availableseat.Add("First Class");
+            availableseat.Add("Economy");
+            availableseat.Add("First Class");
+            availableseat.Add("Economy");
+            availableseat.Add("First Class");
+            availableseat.Add("Economy");
+            availableseat.Add("First Class");
 
-            while (availableseat.Count != 0 || assignedseat.Count != 0)
+            while (economy < 5 || firstclass < 5)
             {
                 Console.WriteLine("Please make a selection");
                 Console.WriteLine("1 for First Class, 2 for Economy, 3 Exit ");
+                
 
                 int switchclass = Convert.ToInt32(Console.ReadLine());
                 
@@ -43,23 +44,60 @@ namespace Assignment_4_Project_2
                 {
                     case 1:
                         Console.WriteLine("First Class");
-                        while (firstclass < 5)
+                        if (availableseat.Contains("First Class"))
                         {
                             firstclass++;
                             
-                            assignedseat.RemoveAt(1);
+                            assignedseat.Add("First Class");
+                            availableseat.Remove("First Class");
                             break;
                         }
-                        break;
+                        else if (availableseat.Contains("Economy"))
+                        {
+                            Console.WriteLine("	Is it acceptable to be placed in the Economy section. \n 1-yes  2-no");
+
+                            int selection = Convert.ToInt32(Console.ReadLine());
+                            if(selection == 1)
+                            {
+                                economy++;
+
+                                availableseat.Add("Economy");
+                                availableseat.Remove("Economy");
+                            }
+                            if(selection == 2)
+                            {
+                                Console.WriteLine("Next flight leaves in 3 hours.");
+                            }
+                        }
+                        
+                            break;
                     case 2:
                         Console.WriteLine("Economy");
-                        while (economy < 5)
+                        if (availableseat.Contains("Economy"))
                         {
                             economy++;
                             
-                            availableseat.RemoveAt(1);
+                            availableseat.Add("Economy");
+                            availableseat.Remove("Economy");
                             break;
                         }
+                        else if (availableseat.Contains("First Class"))
+                        {
+                            Console.WriteLine("	Is it acceptable to be placed in the First Class section. \n 1-yes  2-no");
+                            int selection = Convert.ToInt32(Console.ReadLine());
+                            if (selection == 1)
+                            {
+                                economy++;
+
+                                availableseat.Add("First Class");
+                                availableseat.Remove("First Class");
+                            }
+                            if (selection == 2)
+                            {
+                                Console.WriteLine("Next flight leaves in 3 hours.");
+                            }
+                        }
+                        
                         break;
                     case 3:
                         return;
